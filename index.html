@@ -277,6 +277,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         <button type="submit" class="btn" name="submit-newsletter">ĐẶT ONLINE</button>
                     </div>
                 </form>
+				<script>
+document.querySelector('.form_newsletter').addEventListener('submit', function(e) {
+  e.preventDefault(); // Ngăn form gửi mặc định
+
+  // Lấy dữ liệu từ form
+  const name = document.getElementById('name-newsletter').value.trim();
+  const address = document.getElementById('diachi-newsletter').value.trim();
+  const phone = document.getElementById('phone-newsletter').value.trim();
+  const loaixe = document.getElementById('loaixe-newsletter').value;
+
+  // Số Zalo của bạn (định dạng quốc tế)
+  const zaloPhone = "84942000012";
+
+  // Tạo nội dung tin nhắn
+  const message = `🚗 *Yêu cầu đặt xe online*\n\n` +
+                  `👤 Họ và tên: ${name}\n` +
+                  `🏠 Địa chỉ: ${address}\n` +
+                  `📞 Số điện thoại: ${phone}\n` +
+                  `🚘 Loại xe: ${loaixe}\n\n` +
+                  `Vui lòng xác nhận giúp tôi. Cảm ơn! 🙏`;
+
+  // Mã hóa nội dung tin nhắn
+  const encodedMsg = encodeURIComponent(message);
+
+  // Tạo link Zalo
+  const zaloUrl = `https://zalo.me/${zaloPhone}?text=${encodedMsg}`;
+
+  // Mở Zalo (app hoặc web)
+  window.open(zaloUrl, '_blank');
+});
+</script>
             </div>
             <div class="col-md-5 pl-2 pr-2 mb-3 col-12">
                 <div class="title_intro mb-2" data-aos="fade-up" data-aos-duration="1000" data-aos-offset="0">DỊCH VỤ DU LỊCH THUÊ XE HÓC MÔN                </div>
